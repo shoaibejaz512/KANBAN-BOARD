@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace, sans-serif;
+}
+
+:root {
+    /* bg color  */
+    --bg-color: #000000;
+
+    /* todo color  */
+    --bg-todo-color: #111112;
+    --bg-todo-primary-color: #1a1a1a;
+
+    /* button color  */
+    --button-primary-color: #dc2626;
+    --button-add-color: #1a1a1a;
+
+    /* text color  */
+    --text-color: #fafaf9;
+
+    /* padding varibales */
+    --space-x: 20px;
+    --space-y: 30px;
+    --space-xs: 8px;
+    --space-md: 15px;
+
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-x);
+    position: relative;
+}
+
+.notify-container{
+    width: 22%;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    color: rgb(20, 204, 20);
+    position: absolute;
+    top: 1%;
+    left: 40%;
+}
+
+.notify{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.notify-container .loader{
+    width: 100%;
+    height: 5px;
+    background-color: rgb(0, 255, 64);
+    margin-top: 2px;
+    border-radius: 50px;
+}
+
+.notify-container.remove{
+    display: none;
+}
+.loader.animate{
+    animation: loader 2s linear;
+}
+
+@keyframes loader {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .left h4 {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: var(--text-color);
+}
+
+nav .right button {
+    padding: var(--space-xs) var(--space-md);
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 2px;
+    background: var(--button-add-color);
+}
+
+.board {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.board .column {
+    width: 100%;
+    background-color: var(--bg-todo-color);
+    border-radius: 5px;
+    padding: var(--space-xs) var(--space-md);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+.column::-webkit-scrollbar{
+    display: none;
+}
+.board .column .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board .column .todos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-x);
+}
+
+.column.hover-over {
+    border: 2px dashed white;
+    scale: 1.03;
+    transition: all .15s linear
+}
+
+.column .todo {
+    width: 100%;
+    padding: var(--space-xs) var(--space-x);
+    background-color: var(--bg-todo-primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: var(--space-xs);
+    border-radius: 5px;
+    cursor: grab;
+}
+
+.todo h2 {
+    font-weight: bold;
+    line-height: 1;
+    font-size: 2rem;
+}
+
+.todo .todo-para p {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.todo .del-button {
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+.del-button button {
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--button-primary-color);
+    color: var(--text-color);
+}
+
+/* ----------------------------model ---------------- */
+.model-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.model-container .bg {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000093;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.model-container .center {
+    width: 40%;
+    height: 40vh;
+    background-color: var(--bg-todo-primary-color);
+    padding: var(--space-md) var(--space-x);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+    flex-direction: column;
+}
+
+.model-container .center input {
+    width: 100%;
+    padding: var(--space-md);
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #070606;
+    border-radius: 5px;
+}
+
+.model-container .center textarea {
+    width: 100%;
+    padding: var(--space-md);
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #070606;
+    border-radius: 5px;
+}
+.model-container .center button{
+    width: 30%;
+    padding: 8px 0px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    outline: none;
+    background-color: #070606;
+    cursor: pointer;
+}
+
+.model-container.active{
+    display: flex !important;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+<!-- 
+        <div class="notify-container ">
+            <h2 class="notify">todo added successfully</h2>
+            <div class="loader animate">
+            </div>
+        </div> -->
+
+        <div class="model-container">
+            <div class="bg"></div>
+            <div class="center">
+                <input type="text" placeholder="Todo Title" required class="title">
+                <textarea class="description" rows="5" placeholder="Todo description..."></textarea>
+                <button class="addTaskButton">Add</button>
+            </div>
+        </div>
+        <nav>
+            <div class="left"><h4>KANBAN BOARD</h4></div>
+            <div class="right"><button class="addBtn">Add New Task</button></div>
+        </nav>
+        <section class="board">
+            <div class="column" id="Todos">
+                <div class="header">
+                    <div class="left">
+                        <h4>Todo</h4>
+                    </div>
+                    <div class="right">
+                        <span id="todo-count" class="count">0</span>
+                    </div>
+                </div>
+                <div class="todos">
+                   
+                </div>
+            </div>
+            <div class="column" id="progress">
+                  <div class="header">
+                    <div class="left">
+                        <h4>Progress</h4>
+                    </div>
+                    <div class="right">
+                        <span id="progress-count" class="count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="column" id="done">
+                  <div class="header">
+                    <div class="left">
+                        <h4>Done</h4>
+                    </div>
+                    <div class="right">
+                        <span id="done-count" class="count">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
