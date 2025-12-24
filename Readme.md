@@ -4,6 +4,9 @@ A lightweight and interactive **Kanban Board** built with **Vanilla JavaScript**
 
 ---
 
+live demo
+https://shoaib-kanban-board.netlify.app/
+
 ## ✨ Features
 
 - 📌 **Three Kanban Columns**: Todo, In Progress, Done  
